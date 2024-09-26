@@ -46,3 +46,30 @@ var moveZeroes = function(arr) {
 
 // Time Complexity is O(n)
 // Space Complexity is O(1)
+
+//Alternate Solution:
+var moveZeroes = function(arr) {
+    let swap = (arr, a,b) => {
+        [arr[a], arr[b]] = [arr[b], arr[a]];
+        return a,b
+    }
+    if(arr.length === 0) return arr;
+    let j = -1;
+    for(let i = 0; i < arr.length; i++){
+        if(arr[i] === 0){
+            j = i;
+            break;
+        }
+    }
+    if(j == -1) return arr;
+    for(i = j + 1; i < arr.length; i++){
+        if(arr[i] != 0){
+            swap(arr, i, j);
+            j++;
+        }
+    }
+    return arr;
+};
+
+//Time Complexity for the code is O(n)
+//Space Complexity for the code is O(1)
